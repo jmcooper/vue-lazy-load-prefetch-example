@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import CatalogComponent from '../catalog/CatalogComponent'
-import CartComponent from '../cart/CartComponent'
+import ProductCatalog from '../catalog/ProductCatalog'
+import ShoppingCart from '../cart/ShoppingCart'
 
 export default createRouter({
   history: createWebHistory(),
@@ -9,11 +9,11 @@ export default createRouter({
     {
       path: '/catalog',
       name: 'Catalog',
-      component: CatalogComponent,
+      component: ProductCatalog,
     }, {
       path: '/cart',
       name: 'Cart',
-      component: CartComponent,
+      component: ShoppingCart,
     },
     { path: '/', redirect: '/catalog' },
   ],

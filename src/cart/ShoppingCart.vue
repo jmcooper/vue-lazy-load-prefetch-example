@@ -7,25 +7,9 @@
     </div>
     <ul class="cart" v-if="cartItems.length > 0">
       <li class="cart-item" v-for="(product, index) in cartItems" :key="index">
-        <div class="product">
-          <div class="product-details">
-            <img :src="product.imageUrl" :alt="product.name" />
-            <div class="product-info">
-              <div class="name">{{ product.name }}</div>
-              <div class="description">{{ product.description }}</div>
-              <div class="category">Part Type: {{ product.category }}</div>
-            </div>
-          </div>
-          <div class="price">
-            <div :class="{ 'strikethrough': product.discount > 0 }">
-              {{ toCurrency(product.price) }}
-            </div>
-            <div v-if="product.discount > 0" class="discount">
-              {{ toCurrency(product.price * (1 - product.discount)) }}
-            </div>
-            <button @click="removeFromCart(product)">Remove</button>
-          </div>
-        </div>
+        <ProductInfo :product="product">
+          <button @click="removeFromCart(product)">Remove</button>
+        </ProductInfo>
       </li>
     </ul>
     <div v-if="cartItems.length > 0" class="total">Total: {{ toCurrency(cartTotal) }}</div>
@@ -33,15 +17,15 @@
 </template>
 
 <script setup>
-import { toCurrency } from '../shared/formatters'
-import products from '../catalog/product-data'
+import { toCurrency } from '@/shared/formatters'
+import ProductInfo from '@/catalog/product-info/ProductInfo.vue'
+import products from '@/catalog/product-data'
 
-console.log('p', products)
 const cartItems = [products[0], products[10]]
 const cartTotal = 0
 
-function removeFromCart() {
-
+function removeFromCart(product) {
+  console.log('Remove', product.name)
 }
 
 </script>
