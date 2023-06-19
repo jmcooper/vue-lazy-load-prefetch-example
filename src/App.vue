@@ -1,17 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NavBarComponent />
+  <router-view />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import NavBarComponent from './nav-bar/NavBarComponent.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
-}
 </script>
 
 <style>
@@ -20,7 +14,131 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #333;
+}
+
+.red {
+  color: red;
+}
+
+body {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #444;
+}
+
+a {
+  color: #444;
+  text-decoration: none;
+}
+
+a.active {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #d25ca1;
+}
+
+a.button.active {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #d25ca1;
+}
+
+a:visited {
+  color: #444;
+}
+
+a:hover {
+  color: #5cadd2;
+}
+
+a.cta {
+  color: #d25ca1;
+}
+
+a.cta:visited {
+  color: #d25ca1;
+}
+
+a.cta:hover {
+  color: #f27cb1;
+}
+
+.cta {
+  color: #d25ca1;
+}
+
+a.cta {
+  color: #d25ca1;
+}
+
+a.cta:visited {
+  color: #d25ca1;
+}
+
+a.cta:hover {
+  color: #f27cb1;
+}
+
+.cta {
+  color: #d25ca1;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  font-size: 15px;
+  padding: 15px 25px;
+  background-color: #5cadd2;
+  color: #fff;
+  border: 0;
+  box-shadow: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a.button {
+  font-size: 15px;
+  padding: 15px 25px;
+  background-color: #5cadd2;
+  color: #fff;
+  border: 0;
+  box-shadow: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a.button:hover {
+  color: #1c6d92;
+}
+
+button:disabled {
+  background-color: #777;
+}
+
+button:hover {
+  color: #1c6d92;
+}
+
+button.cta {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #d25ca1;
+  color: #ddd;
+}
+
+button.cta:hover {
+  color: #fff;
+}
+
+input {
+  padding: 15px;
+  font-size: 20px;
+}
+
+.button.cta:disabled {
+  background-color: #f590c4;
+  color: #aaa;
 }
 </style>
