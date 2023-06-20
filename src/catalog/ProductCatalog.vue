@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul class="products">
-      <li class="product-item" v-for="(product, index) in products" :key="index">
+      <li class="product-item" v-for="(product, index) in productStore.products" :key="index">
         <ProductInfo :product="product">
           <button @click="addToCart(product)">Buy</button>
         </ProductInfo>
@@ -12,10 +12,16 @@
 
 <script setup>
 import ProductInfo from './product-info/ProductInfo.vue'
-import products from './product-data'
+import { useCartStore } from '@/stores/cart-store'
+import { useProductStore } from '@/stores/product-store'
+
+const cartStore = useCartStore()
+const productStore = useProductStore()
+
+productStore.getProducts()
 
 function addToCart(product) {
-  console.log('Add', product.name)
+  cartStore.cart.push(product)
 }
 
 </script>

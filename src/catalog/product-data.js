@@ -34,7 +34,7 @@ export default [
     imageUrl: images('./head-friendly.png'),
     category: 'Heads',
     price: 945.0,
-    discount: 0.2,
+    discount: 0.3,
   },
   {
     id: 3,
