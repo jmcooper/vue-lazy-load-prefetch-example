@@ -86,4 +86,9 @@ defineProps({
   margin-top: -15px;
   color: #d25ca1;
 }
+
+.strikethrough {
+  text-decoration: line-through;
+  font-size: 18px;
+}
 </style>
