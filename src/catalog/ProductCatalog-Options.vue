@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul class="products">
-      <li class="product-item" v-for="(product, index) in productStore.products" :key="index">
+      <li class="product-item" v-for="(product, index) in products" :key="index">
         <ProductInfo :product="product">
           <button @click="addToCart(product)">Buy</button>
         </ProductInfo>
@@ -14,23 +14,29 @@
 import ProductInfo from './product-info/ProductInfo.vue'
 import { useCartStore } from '@/stores/cart-store'
 import { useProductStore } from '@/stores/product-store'
+import { mapActions, mapState } from 'pinia'
 
 export default {
   components: {
     ProductInfo,
   },
-  setup() {
-    const cartStore = useCartStore()
-    const productStore = useProductStore()
+  // setup() {
+  //   const cartStore = useCartStore()
+  //   const productStore = useProductStore()
 
-    return { cartStore, productStore }
-  },
+  //   return { cartStore, productStore }
+  // },
   created() {
-    this.productStore.getProducts()
+    this.getProducts()
+  },
+  computed: {
+    ...mapState(useProductStore, ['products']),
+    ...mapState(useCartStore, ['cart']),
   },
   methods: {
+    ...mapActions(useProductStore, ['getProducts']),
     addToCart(product) {
-      this.cartStore.cart.push(product)
+      this.cart.push(product)
     },
   },
 }
