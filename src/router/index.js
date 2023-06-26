@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import ProductCatalog from '../catalog/ProductCatalog-Options'
-import ShoppingCart from '../cart/ShoppingCart'
+import ShoppingCart from '../cart/ShoppingCart-Options'
 
 export default createRouter({
   history: createWebHistory(),
