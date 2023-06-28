@@ -2,8 +2,8 @@
   <div class="container">
     <h1 class="header">Your Cart</h1>
 
-    <div class="empty-cart" v-if="cartStore.cart.length === 0">
-      You have no items in your cart
+    <div class=" empty-cart" v-if="cartStore.cart.length === 0">
+      You have no items in your cart as of {{ loadTime }}
     </div>
     <ul class="cart" v-if="cartStore.cart.length > 0">
       <li class="cart-item" v-for="(product, index) in cartStore.cart" :key="index">
@@ -20,8 +20,11 @@
 import { toCurrency } from '@/shared/formatters'
 import ProductInfo from '@/catalog/product-info/ProductInfo.vue'
 import { useCartStore } from '@/stores/cart-store'
+import moment from 'moment'
 
 const cartStore = useCartStore()
+
+const loadTime = moment().format()
 
 function removeFromCart(product) {
   cartStore.cart = cartStore.cart.filter((i) => i !== product)
